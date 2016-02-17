@@ -32,7 +32,8 @@ public class KisoKadai3 {
 		String str = null;
 		int num;
 
-		// Boolean flag = true ;
+		Boolean flag = true ;
+		while(flag){
 
 		try {
 			// ↓ファイルを指定する
@@ -130,8 +131,25 @@ public class KisoKadai3 {
 
 		} // catch
 		System.out.println("すべての処理が完了しました。お疲れーっす");
+		System.out.println("まだ続けるつもりなら　１を、終了するなら０を入力してね");
+		try{
+		BufferedReader bbr = new BufferedReader(new InputStreamReader(System.in));
+		int concon;
+		String con = bbr.readLine();
+		concon = Integer.parseInt(con);
+		if(concon == 0){
+			System.out.println("OK、お別れだね。さようなら");
+			break;
+		}else if(concon == 1){
+			System.out.println("まだ物足りないんだね、OK");
+		}
+		}catch(Exception e){
+			System.out.println("ちょっと何言ってるかわかりません");
+		}
+		}
 		System.exit(0);
-	}// public static
+	}
+
 		// void
 		// main(String[]
 		// args)
