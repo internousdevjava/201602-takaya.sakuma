@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
 
@@ -37,21 +38,25 @@ public class KisoKadai3 {
 
 		try {
 			// ↓ファイルを指定する
-			System.out.println("ファイル名を入力してください");
-			file = br.readLine();
-			File sakuma = new File(file);
+	//		System.out.println("ファイル名を入力してください");
+	//		file = br.readLine();
+	//		File sakuma = new File(file);
 			// while(flag){
 			System.out.println("テキストファイルプログラムです以下の数字でアクションを選択できます");
 			System.out.println("1．新規作成");
 			System.out.println("2．上書き");
 			System.out.println("3．追記");
-			System.out.println("4. 削除");
+			System.out.println("4．読み込み");
+			System.out.println("5. 削除");
 			System.out.println("100．終了");
 			// System.out.println("101．一つ前に戻る");
 
 			str = br.readLine();
 			num = Integer.parseInt(str);
 			if (num == 1) {
+				System.out.println("ファイル名を入力してください");
+				file = br.readLine();
+				File sakuma = new File(file);
 				if (sakuma.createNewFile()) {// 新規作成のコード
 					System.out.println("ファイルの作成に成功しました");
 				} else {
@@ -67,7 +72,9 @@ public class KisoKadai3 {
 				fw.close();
 			} // if(num == 1)
 			else if (num == 2) {// 上書きコードを書く
-
+				System.out.println("ファイル名を入力してください");
+				file = br.readLine();
+				File sakuma = new File(file);
 				// PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
 				if (!sakuma.exists()) {
 					System.out.println("ファイルが存在しません。新しくファイルを作成します");
@@ -86,7 +93,9 @@ public class KisoKadai3 {
 
 			} // else if(num == 2)
 			else if (num == 3) {// 追記コードを書く
-
+				System.out.println("ファイル名を入力してください");
+				file = br.readLine();
+				File sakuma = new File(file);
 				// PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
 				if (!sakuma.exists()) {
 					System.out.println("ファイルが存在しません。新しくファイルを作成します");
@@ -101,10 +110,30 @@ public class KisoKadai3 {
 				fw.close();
 
 			} // else if(num == 3)
-			else if (num == 4) {// 削除コードを書く
+			else if (num == 4) {// 読み込みコードを書く
+				System.out.println("ファイル名を入力してください");
+				file = br.readLine();
+				File sakuma = new File(file);
+				// PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
+				if (!sakuma.exists()) {
+					System.out.println("ファイルが存在しません。");
+				}else{
+					FileReader filereader = new FileReader(file);
+					int re;
+					  while((re = filereader.read()) != -1){
+					    System.out.print((char)re);
+					  }
+					  filereader.close();
+				}
+
+
+			}//else if (num == 4)
+			else if (num == 5) {// 削除コードを書く
+				System.out.println("ファイル名を入力してください");
+				file = br.readLine();
+				File sakuma = new File(file);
 					if (!sakuma.exists()) {
 						System.out.println("ファイルが存在しません。削除するものがないんだから無理だよね。");
-						return;
 					} else {
 						if(sakuma.delete()){
 						System.out.println("削除に成功しました");
@@ -113,7 +142,7 @@ public class KisoKadai3 {
 						}
 					}
 				// break;
-			} // else if(num == 4)
+			} // else if(num == 5)
 			else if (num == 100) {
 				System.out.println("さようなら.....");
 				System.exit(0);
@@ -130,6 +159,7 @@ public class KisoKadai3 {
 			System.out.println("ちょっと何言ってるかわかりません");
 
 		} // catch
+		System.out.println(" ");
 		System.out.println("すべての処理が完了しました。お疲れーっす");
 		System.out.println("まだ続けるつもりなら　１を、終了するなら０を入力してね");
 		try{
