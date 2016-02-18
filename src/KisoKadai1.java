@@ -39,7 +39,11 @@ public class KisoKadai1 {
         //文字を数字に変える
         	    for( int i = 1 ; i <= y  ; i++ ){
         		for( int j = 1 ; j <= x  ; j++ ){
-        	    System.out.print( i * j + " ");
+        	    System.out.print( " " + i * j );
+        	    if(i*j < 10){ System.out.print("  ");
+        	    }else if(i*j >= 10 && i*j <100){
+        	    	System.out.print(" ");
+        	    }
         		}
         		System.out.println();
         	}
