@@ -36,7 +36,10 @@ public class KisoKadai2 {
            	ans  =Integer.parseInt(str);
         //文字を数字に変える
 
-           	if(ans>cor ){
+           	if(!(1<=ans) || !(ans<=100)){
+           		System.out.println("1から100の数値を入力してください");
+           	}
+           	else if(ans>cor ){
            		System.out.println("もっと小さいです！");
            	}
         //答えより大きい場合
